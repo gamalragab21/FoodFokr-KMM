@@ -9,18 +9,22 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun RecipeListScreen(
+    recipeListViewModel: RecipeListViewModel = viewModel(),
     onSelectedRecipe: (Int) -> Unit,
-) {
+
+    ) {
 
     LazyColumn {
         items(100) { recipeId ->
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .clickable {
-                       onSelectedRecipe(recipeId)
+                        onSelectedRecipe(recipeId)
                     }
             ) {
 

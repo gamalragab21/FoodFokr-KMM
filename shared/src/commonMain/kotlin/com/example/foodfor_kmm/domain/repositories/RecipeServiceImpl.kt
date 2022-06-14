@@ -19,7 +19,7 @@ class RecipeServiceImpl constructor(
         return httpClient.get{
             url("$BASE_URL/search?page=$page&query=$query")
             header("Authorization", TOKEN)
-        }.body<RecipeSearchResponse>().results.toRecipeList()
+        }.body<RecipeSearchResponse>().results?.toRecipeList()?: emptyList()
     }
 
     override suspend fun get(recipeId: Int): Recipe {

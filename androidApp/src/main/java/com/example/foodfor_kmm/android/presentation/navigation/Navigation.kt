@@ -11,6 +11,7 @@ import androidx.navigation.navArgument
 import com.example.foodfor_kmm.android.presentation.screens.recipe_detail.RecipeDetailScreen
 import com.example.foodfor_kmm.android.presentation.screens.recipe_detail.RecipeDetailViewModel
 import com.example.foodfor_kmm.android.presentation.screens.recipe_list.RecipeListScreen
+import com.example.foodfor_kmm.android.presentation.screens.recipe_list.RecipeListViewModel
 import org.koin.androidx.compose.viewModel
 
 @Composable
@@ -20,8 +21,10 @@ fun Navigation() {
         startDestination = Screen.RecipeListScreen.route) {
 
         // TODO: mainScreen
-        composable(route = Screen.RecipeListScreen.route) {
-            RecipeListScreen() { recipeId ->
+        composable(route = Screen.RecipeListScreen.route) {navBackStackEntry->
+            val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
+            val viewModel: RecipeListViewModel = viewModel(key = "RecipeListViewModel", factory = factory)
+            RecipeListScreen(viewModel) { recipeId ->
                 navController.navigate(Screen.RecipeDetailScreen.withArgs(recipeId.toString()))
             }
         }
@@ -37,8 +40,7 @@ fun Navigation() {
             )
         ) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            val viewModel: RecipeDetailViewModel =
-                viewModel(key = "RecipeDetailViewModel", factory = factory)
+            val viewModel: RecipeDetailViewModel = viewModel(key = "RecipeDetailViewModel", factory = factory)
             //  RecipeDetailScreen(recipeId = navBackStackEntry.arguments?.getInt("recipeId"))
             RecipeDetailScreen(recipe = viewModel.recipe.value)
         }
