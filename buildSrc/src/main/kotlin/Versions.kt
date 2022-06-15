@@ -17,6 +17,7 @@ object Versions {
     const val compose_version = "1.1.0-rc01"
     const val coroutines = "1.5.0-native-mt"
     const val junit = "4.13.2"
+    const val coilVersion =  "1.3.2"
     const val material = "1.4.0"
     const val kotlinxDateTime = "0.3.1"
     const val activity_compose = "1.4.0"

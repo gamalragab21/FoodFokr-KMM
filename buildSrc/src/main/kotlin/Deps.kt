@@ -47,6 +47,8 @@ object Deps {
             "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutComposeVersion}"
         const val navigation =
             "androidx.navigation:navigation-compose:${Versions.composeNavigationVerson}"
+        const val coil = "io.coil-kt:coil-compose:${Versions.coilVersion}"
+
     }
 
     object Hilt {

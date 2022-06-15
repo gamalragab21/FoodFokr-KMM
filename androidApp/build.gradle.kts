@@ -64,6 +64,7 @@ dependencies {
         implementation(uiUtil)
         implementation(constraintLayout)
         implementation(navigation)
+        implementation(coil)
     }
     with(Deps.Hilt){
         implementation(hiltAndroid)
