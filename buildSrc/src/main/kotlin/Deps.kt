@@ -13,13 +13,13 @@ object Deps {
         const val kotlin_gradle_plugin =
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin_gradle_plugin}"
         const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${hilt_version}"
-
+        const val sqlDelightGradlePlugin =
+            "com.squareup.sqldelight:gradle-plugin:${Versions.SqlDelightVersion}"
     }
 
     object Google {
         const val material = "com.google.android.material:material:${Versions.material}"
     }
-
 
 
     object AndroidX {
@@ -43,14 +43,23 @@ object Deps {
             "androidx.compose.foundation:foundation-layout:${Versions.compose_version}"
         const val activity = "androidx.activity:activity-compose:${Versions.activity_compose}"
 
-        const val constraintLayout = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutComposeVersion}"
-        const val navigation = "androidx.navigation:navigation-compose:${Versions.composeNavigationVerson}"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutComposeVersion}"
+        const val navigation =
+            "androidx.navigation:navigation-compose:${Versions.composeNavigationVerson}"
     }
-     object Hilt{
-         const val hiltAndroid = "com.google.dagger:hilt-android:$hilt_version"
-         const val hiltCompiler = "com.google.dagger:hilt-compiler:$hilt_version"
-         const val hiltNavigation = "androidx.hilt:hilt-navigation:$hiltNavigationVersion"
-     }
+
+    object Hilt {
+        const val hiltAndroid = "com.google.dagger:hilt-android:$hilt_version"
+        const val hiltCompiler = "com.google.dagger:hilt-compiler:$hilt_version"
+        const val hiltNavigation = "androidx.hilt:hilt-navigation:$hiltNavigationVersion"
+    }
+
+    object SQLDelight {
+        const val runTime = "com.squareup.sqldelight:runtime:${Versions.SqlDelightVersion}"
+        const val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.SqlDelightVersion}"
+        const val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.SqlDelightVersion}"
+    }
 
     //TODO:Add Coroutines
     object Coroutines {
@@ -59,16 +68,20 @@ object Deps {
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
         const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     }
+
     object Ktor {
         const val core = "io.ktor:ktor-client-core:${Versions.ktorVersion}"
         const val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktorVersion}"
-        const val clientSerializationKotlin = "io.ktor:ktor-serialization-kotlinx-json:${Versions.ktorVersion}"
-        const val clientNegotiation = "io.ktor:ktor-client-content-negotiation:${Versions.ktorVersion}"
+        const val clientSerializationKotlin =
+            "io.ktor:ktor-serialization-kotlinx-json:${Versions.ktorVersion}"
+        const val clientNegotiation =
+            "io.ktor:ktor-client-content-negotiation:${Versions.ktorVersion}"
         const val clientLogging = "io.ktor:ktor-client-logging:${Versions.ktorVersion}"
 
         const val android = "io.ktor:ktor-client-android:${Versions.ktorVersion}"
         const val ios = "io.ktor:ktor-client-ios:${Versions.ktorVersion}"
     }
+
     //TODO:Add JetBrains
     object JetBrains {
         const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinxDateTime}"
@@ -89,6 +102,7 @@ object Deps {
         const val android =
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelLifeCycle}"
     }
+
     object Other {
         const val napier = "io.github.aakira:napier:${Versions.napier}"
         const val junit = "junit:junit:${Versions.junit}"

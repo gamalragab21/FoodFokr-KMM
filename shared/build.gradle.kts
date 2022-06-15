@@ -4,8 +4,12 @@ plugins {
     kotlin(Plugins.serialization) version Versions.kotlin
     id(Plugins.androidLib)
     kotlin(Plugins.multiplatform)
+    id(Plugins.sqlDelightPlugin)
+
 }
-version = "1.0.0"
+
+
+version = "1.0"
 
 kotlin {
     android()
@@ -29,6 +33,8 @@ kotlin {
                 implementation(Deps.Ktor.clientSerializationKotlin)
                 implementation(Deps.Ktor.clientNegotiation)
                 implementation(Deps.Ktor.clientLogging)
+                implementation (Deps.SQLDelight.runTime)
+
             }
         }
         val commonTest by getting {
@@ -39,6 +45,8 @@ kotlin {
         val androidMain by getting{
             dependencies {
                 implementation(Deps.Ktor.android)
+                implementation (Deps.SQLDelight.androidDriver)
+
             }
         }
         val androidTest by getting
@@ -50,6 +58,12 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(Deps.Ktor.ios)
+                implementation (Deps.SQLDelight.nativeDriver)
+
+//                implementation("io.ktor:ktor-client-darwin:${Versions.ktorVersion}")
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
@@ -59,13 +73,11 @@ kotlin {
             iosX64Test.dependsOn(this)
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
-            dependencies {
-                implementation(Deps.Ktor.ios)
-//                implementation("io.ktor:ktor-client-darwin:${Versions.ktorVersion}")
-            }
+
         }
     }
 }
+
 
 android {
     compileSdk = Versions.compile_sdk
@@ -73,5 +85,11 @@ android {
     defaultConfig {
         minSdk = Versions.min_sdk
         targetSdk = Versions.target_sdk
+    }
+}
+sqldelight {
+    database("RecipeDatabase") {
+        packageName = "com.example.foodfor_kmm.dataSource.cache"
+        sourceFolders = listOf("sqldelight")
     }
 }

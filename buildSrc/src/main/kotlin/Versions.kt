@@ -34,6 +34,7 @@ object Versions {
     const val hilt_version = "2.38.1"
     const val hiltNavigationVersion = "1.0.0-alpha03"
     const val ktorVersion  = "2.0.0-beta-1"
+    const val SqlDelightVersion="1.5.3"
 
 
 }
