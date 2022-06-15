@@ -13,6 +13,7 @@ object Deps {
         const val kotlin_gradle_plugin =
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin_gradle_plugin}"
         const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${hilt_version}"
+        const val sqlDelightGradlePlugin = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelightVersion}"
 
     }
 
@@ -77,6 +78,11 @@ object Deps {
         const val uiUtil = "org.jetbrains.compose.ui:ui-util:${Versions.desktop_compose_plugin}"
     }
 
+    object SQLDelight{
+        const val runtime = "com.squareup.sqldelight:runtime:${Versions.sqlDelightVersion}"
+        const val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.sqlDelightVersion}"
+        const val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.sqlDelightVersion}"
+    }
     object Koin {
         const val common = "io.insert-koin:koin-core:$koinVersion"
         const val test = "io.insert-koin:koin-test:$koinVersion"

@@ -1,11 +1,11 @@
 package com.example.foodfor_kmm.dataSource.network
 
 import io.ktor.client.*
+import io.ktor.client.engine.ios.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
-import io.ktor.client.engine.ios.*
 
 actual class KtorClientFactory actual constructor() {
     private val nonStrictJson = Json { isLenient = true;ignoreUnknownKeys = true }

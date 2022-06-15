@@ -8,6 +8,7 @@ buildscript {
         classpath(Deps.Build.kotlin_gradle_plugin)
         classpath(Deps.Build.android_gradle_plugin)
         classpath(Deps.Build.hiltGradlePlugin)
+        classpath(Deps.Build.sqlDelightGradlePlugin)
     }
 }
 
