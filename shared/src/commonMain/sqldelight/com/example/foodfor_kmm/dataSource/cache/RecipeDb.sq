@@ -32,16 +32,20 @@ searchRecipes:
 SELECT * FROM recipe_Entity
 WHERE title LIKE ('%' || :query || '%')
 OR ingredients LIKE ('%' || :query || '%')
--- ORDER BY date_updated DESC -- Ordering can cause duplicates in the results because they all have identical timestamps
+ORDER BY date_updated DESC -- Ordering can cause duplicates in the results because they all have identical timestamps
 LIMIT :pageSize
 OFFSET :offset;
 
 getAllRecipes:
 SELECT * FROM recipe_Entity
--- ORDER BY date_updated DESC -- Ordering can cause duplicates in the results because they all have identical timestamps
+ORDER BY date_updated DESC -- Ordering can cause duplicates in the results because they all have identical timestamps
 LIMIT :pageSize
 OFFSET :offset;
 
 getRecipeById:
 SELECT * FROM recipe_Entity
 WHERE id = :id;
+
+getRecipeById2:
+SELECT * FROM recipe_Entity
+WHERE id =?;

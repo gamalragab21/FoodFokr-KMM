@@ -1,6 +1,7 @@
 package com.example.foodfor_kmm.android.di
 
 import android.content.Context
+import com.example.foodfor_kmm.common.utils.DataTimeUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +31,10 @@ object AppModule {
     @Singleton
     @MainDispatcher
     fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+
+    @Provides
+    @Singleton
+    fun provideDataTimeUtil():DataTimeUtil=DataTimeUtil()
 
 
 }

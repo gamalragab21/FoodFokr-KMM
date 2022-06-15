@@ -32,7 +32,9 @@ class RecipeListViewModel @Inject constructor(
                 println("RecipeListData: ${it.isLoading}")
 
                 it.data?.let {
-                    println("RecipeListData: ${it}")
+                    it.forEach {
+                        println("RecipeListData: ${it.id}")
+                    }
                 }
                 it.message?.let {
                     println("RecipeListData: ${it}")

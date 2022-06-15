@@ -1,7 +1,7 @@
 package com.example.foodfor_kmm.android.di
 
 import com.example.foodfor_kmm.dataSource.network.KtorClientFactory
-import com.example.foodfor_kmm.dataSource.repositories.RecipeService
+import com.example.foodfor_kmm.dataSource.network.repositories.RecipeService
 import com.example.foodfor_kmm.domain.repositories.RecipeServiceImpl
 import dagger.Module
 import dagger.Provides

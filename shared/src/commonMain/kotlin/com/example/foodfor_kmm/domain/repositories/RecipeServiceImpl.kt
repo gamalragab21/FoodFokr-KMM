@@ -6,7 +6,7 @@ import com.example.foodfor_kmm.dataSource.network.model.RecipeDto
 import com.example.foodfor_kmm.dataSource.network.model.RecipeSearchResponse
 import com.example.foodfor_kmm.dataSource.network.toRecipe
 import com.example.foodfor_kmm.dataSource.network.toRecipeList
-import com.example.foodfor_kmm.dataSource.repositories.RecipeService
+import com.example.foodfor_kmm.dataSource.network.repositories.RecipeService
 import com.example.foodfor_kmm.domain.model.Recipe
 import io.ktor.client.*
 import io.ktor.client.call.*

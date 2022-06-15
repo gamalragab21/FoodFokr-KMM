@@ -5,13 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.foodfor_kmm.dataSource.repositories.RecipeService
 import com.example.foodfor_kmm.domain.model.Recipe
 import com.example.foodfor_kmm.interactos.recipe_detail.RecipeDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,8 +30,9 @@ class RecipeDetailViewModel @Inject constructor(
         recipeDetailUseCase.invoke(id)
             .onEach {
                 println("RecipeData: ${it.isLoading}")
-                it.data?.let {
+                it.data.let {
                     println("RecipeData: ${it}")
+                    _recipe.value=it
                 }
                 it.message?.let {
                     println("RecipeData: ${it}")

@@ -1,4 +1,4 @@
-package com.example.foodfor_kmm.dataSource.repositories
+package com.example.foodfor_kmm.dataSource.network.repositories
 
 import com.example.foodfor_kmm.domain.model.Recipe
 
