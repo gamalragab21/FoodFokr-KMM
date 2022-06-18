@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foodfor_kmm.android.common.Constants
+import com.example.foodfor_kmm.android.presentation.components.EmptyScreen
 import com.example.foodfor_kmm.android.presentation.components.RecipeCard
 import com.example.foodfor_kmm.android.presentation.components.SearchAppBar
 import com.example.foodfor_kmm.android.presentation.components.shimmer.LoadingRecipeListShimmer
@@ -54,7 +55,7 @@ fun RecipeListScreen(
                     Constants.RECIPE_IMAGE_HEIGHT.dp
                 )
             } else if (state.recipes.isEmpty()) {
-
+                     EmptyScreen()
             } else {
                 LazyColumn {
                     itemsIndexed(items = state.recipes) { index: Int, recipe: Recipe ->

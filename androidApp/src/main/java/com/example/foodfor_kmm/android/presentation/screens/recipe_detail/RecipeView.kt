@@ -17,8 +17,8 @@ import com.example.foodfor_kmm.domain.model.Recipe
 @Composable
 fun RecipeView(
     recipe: Recipe,
-    dataTimeUtil: DataTimeUtil
-){
+    dataTimeUtil: DataTimeUtil,
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,13 +37,12 @@ fun RecipeView(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 4.dp)
-                ){
+                ) {
                     Text(
                         text = recipe.title,
                         modifier = Modifier
                             .fillMaxWidth(0.85f)
-                            .wrapContentWidth(Alignment.Start)
-                        ,
+                            .wrapContentWidth(Alignment.Start),
                         style = MaterialTheme.typography.h3
                     )
                     val rank = recipe.rating.toString()
@@ -52,28 +51,25 @@ fun RecipeView(
                         modifier = Modifier
                             .fillMaxWidth()
                             .wrapContentWidth(Alignment.End)
-                            .align(Alignment.CenterVertically)
-                        ,
+                            .align(Alignment.CenterVertically),
                         style = MaterialTheme.typography.h5
                     )
                 }
-                val datetimeUtil = remember{dataTimeUtil}
+                val datetimeUtil = remember { dataTimeUtil }
                 Text(
                     text = "Updated ${datetimeUtil.humanizeDatetime(recipe.dataAdded)} by ${recipe.publisher}"
                     ,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 8.dp)
-                    ,
+                        .padding(bottom = 8.dp),
                     style = MaterialTheme.typography.caption
                 )
-                for(ingredient in recipe.ingredients){
+                for (ingredient in recipe.ingredients) {
                     Text(
                         text = ingredient,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(bottom = 4.dp)
-                        ,
+                            .padding(bottom = 4.dp),
                         style = MaterialTheme.typography.body1
                     )
                 }

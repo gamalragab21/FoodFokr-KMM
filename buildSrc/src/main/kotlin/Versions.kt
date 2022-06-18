@@ -11,7 +11,7 @@ object Versions {
 // Plugins
     const val kotlin = "1.6.20"
     const val kotlin_gradle_plugin = "1.6.10"
-    const val android_gradle_plugin = "7.0.4"
+    const val android_gradle_plugin = "7.2.1"
     const val desktop_compose_plugin = "1.0.1"
     const val compose_compiler_version = "1.1.0-rc02"
     const val compose_version = "1.1.0-rc01"
