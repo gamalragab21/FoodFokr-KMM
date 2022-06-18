@@ -75,7 +75,7 @@ dependencies {
         implementation(appCompat)
     }
     with(Deps.Other) {
-        implementation(datetime)
+      //  implementation(datetime)
         debugImplementation(leakCanary)
         implementation(napier)
 

@@ -1,17 +1,19 @@
 package com.example.foodfor_kmm.common
 
+import com.example.foodfor_kmm.common.utils.GenericMessageInfo
+
 data class DataState<T>(
-    val message: String? = null,
+    val message: GenericMessageInfo.Builder? = null,
     val data: T? = null,
     val isLoading: Boolean = false,
 ) {
     companion object {
         fun <T> error(
-            message: String,
+            message: GenericMessageInfo.Builder,
         ): DataState<T> = DataState(message)
 
         fun <T> data(
-            message: String? = null,
+            message: GenericMessageInfo.Builder? = null,
             data: T? = null,
         ): DataState<T> = DataState(message = message, data = data)
 

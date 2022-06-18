@@ -10,12 +10,17 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.foodfor_kmm.android.presentation.theme.*
+import com.example.foodfor_kmm.android.presentation.components.CircularIndeterminateProgressBar
+import com.example.foodfor_kmm.android.presentation.components.ProcessDialogQueue
+import com.example.foodfor_kmm.common.utils.GenericMessageInfo
+import com.example.foodfor_kmm.common.utils.Queue
 
 @Composable
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     displayProgressBar: Boolean,
+    dialogQueue:Queue<GenericMessageInfo> = Queue(mutableListOf()),
+    onRemoveHeadFromQueue:()->Unit,
     content: @Composable () -> Unit,
 ) {
 // TODO: Add Colors
@@ -27,6 +32,7 @@ fun AppTheme(
                 secondary = secondaryDarkColor,
                 secondaryVariant = secondaryLightColor,
                 onPrimary = Color.White,
+                onError = RedErrorDark
             )
     } else {
         lightColors()
@@ -36,6 +42,8 @@ fun AppTheme(
                 secondary = secondaryColor,
                 secondaryVariant = secondaryLightColor,
                 onPrimary = Color.Black,
+                onError = RedErrorDark
+
             )
     }
 // TODO: Add Theme
@@ -43,16 +51,21 @@ fun AppTheme(
         colors = colors,
         typography = QuickSandTypography,
         shapes = AppShapes
-    ){
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color =Grey1)
-        ){
-            content()
-            if(displayProgressBar){
-                // TODO("Show indeterminate progress bar")
+                .background(color = Grey1)
+        ) {
+            ProcessDialogQueue(dialogQueue = dialogQueue){
+                onRemoveHeadFromQueue()
             }
+            content()
+//            LoadingRecipeListShimmer(
+//                displayProgressBar,
+//                Constants.RECIPE_IMAGE_HEIGHT.dp
+//            )
+            CircularIndeterminateProgressBar(isDisplayed = displayProgressBar, verticalBias = 0.3f)
         }
     }
 }

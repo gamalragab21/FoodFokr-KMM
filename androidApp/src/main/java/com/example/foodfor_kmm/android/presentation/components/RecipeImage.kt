@@ -1,10 +1,7 @@
 package com.example.foodfor_kmm.android.presentation.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,6 +24,7 @@ fun RecipeImage(
 ) {
     val painter = rememberImagePainter(url)
 
+
     Box {
         Image(painter = painter,
             contentDescription = contentDescription,
@@ -34,41 +32,38 @@ fun RecipeImage(
                 .fillMaxWidth()
                 .height(RECIPE_IMAGE_HEIGHT.dp),
             contentScale = ContentScale.Crop)
-    }
 
-    when (painter.state) {
-        is ImagePainter.State.Error -> {
-            println("RecipeData Loading Error for recipe image ")
+        when (painter.state) {
+            is ImagePainter.State.Success -> {
 
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(RECIPE_IMAGE_HEIGHT.dp),
-            ) {
+            }
+            is ImagePainter.State.Error -> {
+
                 Image(painterResource(R.drawable.ic_image),
                     contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(RECIPE_IMAGE_HEIGHT.dp),
                     contentDescription = contentDescription)
             }
-        }
-        is ImagePainter.State.Loading -> {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(RECIPE_IMAGE_HEIGHT.dp),
-            ) {
-                CircularProgressIndicator(
+            is ImagePainter.State.Loading -> {
+
+                Box(
+                    contentAlignment = Alignment.Center,
                     modifier = Modifier
-                        .width(25.dp)
-                        .height(25.dp)
-                )
+                        .fillMaxWidth()
+                        .height(RECIPE_IMAGE_HEIGHT.dp),
+                ) {
+
+                    CircularProgressIndicator(
+                        modifier = Modifier
+                            .width(15.dp)
+                            .wrapContentHeight(),
+                    )
+                }
             }
         }
-        is ImagePainter.State.Success -> {
-            println("RecipeData Loading success for recipe image ")
-
-        }
     }
+
 
 }

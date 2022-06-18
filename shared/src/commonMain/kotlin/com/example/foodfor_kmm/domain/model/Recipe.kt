@@ -11,8 +11,8 @@ data class Recipe(
     val rating:Int,
     val sourceUrl:String,
     val ingredients:List<String> = listOf(),
-    val dataAdded:LocalDateTime,
-    val dataUpdated:LocalDateTime,
+    val dataAdded: LocalDateTime,
+    val dataUpdated: LocalDateTime,
 
     ){
     override fun toString(): String {

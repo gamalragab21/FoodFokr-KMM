@@ -9,7 +9,7 @@ object Versions {
 
     // 2
 // Plugins
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.6.20"
     const val kotlin_gradle_plugin = "1.6.10"
     const val android_gradle_plugin = "7.0.4"
     const val desktop_compose_plugin = "1.0.1"
@@ -19,7 +19,7 @@ object Versions {
     const val junit = "4.13.2"
     const val coilVersion =  "1.3.2"
     const val material = "1.4.0"
-    const val kotlinxDateTime = "0.3.1"
+    const val kotlinxDateTime = "0.3.2"
     const val activity_compose = "1.4.0"
     const val composeNavigationVerson = "2.4.2"
      const val constraintLayoutComposeVersion = "1.0.0-alpha03"

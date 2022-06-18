@@ -5,14 +5,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
-import androidx.navigation.Navigation
 import androidx.navigation.compose.*
 import androidx.navigation.navArgument
 import com.example.foodfor_kmm.android.presentation.screens.recipe_detail.RecipeDetailScreen
 import com.example.foodfor_kmm.android.presentation.screens.recipe_detail.RecipeDetailViewModel
 import com.example.foodfor_kmm.android.presentation.screens.recipe_list.RecipeListScreen
 import com.example.foodfor_kmm.android.presentation.screens.recipe_list.RecipeListViewModel
-import org.koin.androidx.compose.viewModel
 
 @Composable
 fun Navigation() {
@@ -21,10 +19,12 @@ fun Navigation() {
         startDestination = Screen.RecipeListScreen.route) {
 
         // TODO: mainScreen
-        composable(route = Screen.RecipeListScreen.route) {navBackStackEntry->
+        composable(route = Screen.RecipeListScreen.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            val viewModel: RecipeListViewModel = viewModel(key = "RecipeListViewModel", factory = factory)
-            RecipeListScreen(viewModel) { recipeId ->
+            val viewModel: RecipeListViewModel =
+                viewModel(key = "RecipeListViewModel", factory = factory)
+            RecipeListScreen(viewModel.recipesSate.value, viewModel::onTriggerEvent
+            ) { recipeId ->
                 navController.navigate(Screen.RecipeDetailScreen.withArgs(recipeId.toString()))
             }
         }
@@ -42,7 +42,8 @@ fun Navigation() {
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
             val viewModel: RecipeDetailViewModel = viewModel(key = "RecipeDetailViewModel", factory = factory)
             //  RecipeDetailScreen(recipeId = navBackStackEntry.arguments?.getInt("recipeId"))
-            RecipeDetailScreen(recipe = viewModel.recipe.value)
+            RecipeDetailScreen(state = viewModel.recipeSate.value,
+                dataTimeUtil = viewModel.dataTimeUtil, onTriggerEvent = viewModel::onTriggerEvent)
         }
     }
 }

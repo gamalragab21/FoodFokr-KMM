@@ -2,6 +2,7 @@ package com.example.foodfor_kmm.android.di
 
 import android.content.Context
 import com.example.foodfor_kmm.common.utils.DataTimeUtil
+import com.example.foodfor_kmm.common.utils.GenericMessageInfoQueueUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +37,8 @@ object AppModule {
     @Singleton
     fun provideDataTimeUtil():DataTimeUtil=DataTimeUtil()
 
+    @Provides
+    @Singleton
+    fun provideGenericMessageInfoQueueUtil():GenericMessageInfoQueueUtil=GenericMessageInfoQueueUtil()
 
 }

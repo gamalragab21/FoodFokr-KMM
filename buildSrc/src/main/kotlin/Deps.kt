@@ -108,7 +108,7 @@ object Deps {
     object Other {
         const val napier = "io.github.aakira:napier:${Versions.napier}"
         const val junit = "junit:junit:${Versions.junit}"
-        const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}"
+        const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinxDateTime}"
         const val leakCanary = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
 
     }

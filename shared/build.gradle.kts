@@ -13,7 +13,11 @@ version = "1.0"
 
 kotlin {
     android()
-
+    jvm("desktop"){
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,13 +31,13 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(Deps.Other.datetime)
                 implementation(Deps.Ktor.core)
                 implementation(Deps.Ktor.clientSerialization)
                 implementation(Deps.Ktor.clientSerializationKotlin)
                 implementation(Deps.Ktor.clientNegotiation)
                 implementation(Deps.Ktor.clientLogging)
-                implementation (Deps.SQLDelight.runTime)
+                implementation(Deps.SQLDelight.runTime)
+                implementation(Deps.Other.datetime)
 
             }
         }
@@ -42,10 +46,10 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting{
+        val androidMain by getting {
             dependencies {
                 implementation(Deps.Ktor.android)
-                implementation (Deps.SQLDelight.androidDriver)
+                implementation(Deps.SQLDelight.androidDriver)
 
             }
         }
@@ -60,7 +64,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
                 implementation(Deps.Ktor.ios)
-                implementation (Deps.SQLDelight.nativeDriver)
+                implementation(Deps.SQLDelight.nativeDriver)
 
 //                implementation("io.ktor:ktor-client-darwin:${Versions.ktorVersion}")
             }
@@ -87,6 +91,7 @@ android {
         targetSdk = Versions.target_sdk
     }
 }
+
 sqldelight {
     database("RecipeDatabase") {
         packageName = "com.example.foodfor_kmm.dataSource.cache"
