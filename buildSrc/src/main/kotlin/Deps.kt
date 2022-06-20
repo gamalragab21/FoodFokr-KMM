@@ -94,7 +94,7 @@ object Deps {
 
     object Koin {
         const val common = "io.insert-koin:koin-core:$koinVersion"
-        const val test = "io.insert-koin:koin-test:$koinVersion"
+        const val common_test = "io.insert-koin:koin-test:$koinVersion"
         const val android = "io.insert-koin:koin-android:$koinVersion"
         const val compose = "io.insert-koin:koin-androidx-compose:$koinVersion"
         const val desktop = "io.insert-koin:koin-core:$koinVersion"

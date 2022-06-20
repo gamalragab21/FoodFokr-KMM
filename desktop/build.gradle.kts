@@ -35,6 +35,9 @@ kotlin {
                 implementation(Deps.Other.napier)
                 // Coroutines
                 implementation(Deps.Coroutines.common)
+
+                implementation(Deps.Koin.desktop)
+
                 implementation(project(":shared"))
 // implementation(project(":shared-ui"))
             }

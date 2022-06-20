@@ -38,6 +38,8 @@ kotlin {
                 implementation(Deps.Ktor.clientLogging)
                 implementation(Deps.SQLDelight.runTime)
                 implementation(Deps.Other.datetime)
+                implementation(Deps.Koin.common)
+                implementation(Deps.Koin.common_test)
 
             }
         }
