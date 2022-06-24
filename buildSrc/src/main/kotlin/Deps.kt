@@ -81,6 +81,7 @@ object Deps {
         const val common = "io.insert-koin:koin-core:$koinVersion"
         const val test = "io.insert-koin:koin-test:$koinVersion"
         const val android = "io.insert-koin:koin-android:$koinVersion"
+        const val android_viewmodel = "org.koin:koin-androidx-viewmodel:$koinVersion"
         const val compose = "io.insert-koin:koin-androidx-compose:$koinVersion"
         const val desktop = "io.insert-koin:koin-core:$koinVersion"
     }

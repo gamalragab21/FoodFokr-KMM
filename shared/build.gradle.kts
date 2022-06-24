@@ -29,11 +29,15 @@ kotlin {
                 implementation(Deps.Ktor.clientSerializationKotlin)
                 implementation(Deps.Ktor.clientNegotiation)
                 implementation(Deps.Ktor.clientLogging)
+                implementation(Deps.Koin.common)
+                implementation(Deps.Other.napier)
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(Deps.Koin.test)
+
             }
         }
         val androidMain by getting{

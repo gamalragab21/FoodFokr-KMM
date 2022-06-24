@@ -89,6 +89,7 @@ dependencies {
     with(Deps.Koin) {
         implementation(android)
         implementation(compose)
+       // implementation(android_viewmodel)
     }
 
 }

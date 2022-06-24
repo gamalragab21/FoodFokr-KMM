@@ -7,7 +7,6 @@ import com.example.foodfor_kmm.android.presentation.navigation.Navigation
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalStdlibApi
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 //    @IODispatcher

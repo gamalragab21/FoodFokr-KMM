@@ -1,17 +1,18 @@
 package com.example.foodfor_kmm.android.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
-import androidx.navigation.Navigation
 import androidx.navigation.compose.*
 import androidx.navigation.navArgument
 import com.example.foodfor_kmm.android.presentation.screens.recipe_detail.RecipeDetailScreen
 import com.example.foodfor_kmm.android.presentation.screens.recipe_detail.RecipeDetailViewModel
 import com.example.foodfor_kmm.android.presentation.screens.recipe_list.RecipeListScreen
+import com.example.foodfor_kmm.android.presentation.screens.recipe_list.RecipeListViewModel
+import io.ktor.http.*
+import org.koin.androidx.compose.getStateViewModel
 import org.koin.androidx.compose.viewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 fun Navigation() {
@@ -20,7 +21,8 @@ fun Navigation() {
         startDestination = Screen.RecipeListScreen.route) {
 
         // TODO: mainScreen
-        composable(route = Screen.RecipeListScreen.route) {
+        composable(route = Screen.RecipeListScreen.route) { navBackStackEntry ->
+            val viewModel: RecipeListViewModel by viewModel { parametersOf(navBackStackEntry.savedStateHandle) }
             RecipeListScreen() { recipeId ->
                 navController.navigate(Screen.RecipeDetailScreen.withArgs(recipeId.toString()))
             }
@@ -36,10 +38,7 @@ fun Navigation() {
                 }
             )
         ) { navBackStackEntry ->
-            val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            val viewModel: RecipeDetailViewModel =
-                viewModel(key = "RecipeDetailViewModel", factory = factory)
-            //  RecipeDetailScreen(recipeId = navBackStackEntry.arguments?.getInt("recipeId"))
+            val viewModel: RecipeDetailViewModel by viewModel { parametersOf(navBackStackEntry.arguments) }
             RecipeDetailScreen(recipe = viewModel.recipe.value)
         }
     }
