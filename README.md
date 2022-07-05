@@ -1,5 +1,4 @@
 # FoodFokr-KMM
-# NoteAppWithApiKtor
 
 Recipe App used to get data (food recipe and details from free api) using kmm (Kotlin/Multiplatform) 
 
