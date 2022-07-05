@@ -4,7 +4,7 @@ Recipe App used to get data (food recipe and details from free api) using kmm (K
 
  # Screenshots
 
-<img src="https://user-images.githubusercontent.com/67482991/177317605-78c8cac0-5993-43e1-aa23-38419f277a9d.mp4" width="200">&nbsp;
+<video src="https://user-images.githubusercontent.com/67482991/177317605-78c8cac0-5993-43e1-aa23-38419f277a9d.mp4" width="200">&nbsp;
 ## Built With
 
 * [Kotlin](https://kotlinlang.org) - As a programming language.
