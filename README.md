@@ -27,6 +27,7 @@ Recipe App used to get data (food recipe and details from free api) using kmm (K
 * [Coroutines](https://developer.android.com/kotlin/coroutines) - For multithreading while handling requests to the server and local database.
 * [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started) - To handle app navigation.
 * [Multidex](https://developer.android.com/studio/build/multidex) - To enable creating multi dex files because of using set of libraries that reached the maximum size of single dex file.
+* [Ktor.io](https://ktor.io/docs/getting-started-ktor-client-multiplatform-mobile.html) - Ktor includes a multiplatform asynchronous HTTP client, which allows you to make requests and handle responses, extend its functionality with plugins, such as authentication, JSON serialization, and so on. In this tutorial, we'll create a simple client application for sending a request and receiving a response.
 * [Model-View-ViewModel(MVVM)](https://developer.android.com/topic/architecture) - Offers an implementation of observer design pattern.
 * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - notifies views of any database changes in an observer way.
 * [Naiper](https://github.com/AAkira/Napier) - It helps in logging while debugging your app. and all logging code will not be embedded in the released APK.
